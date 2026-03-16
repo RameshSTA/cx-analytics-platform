@@ -1,0 +1,62 @@
+name: CI
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.9", "3.11"]
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: "pip"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run linter (ruff)
+        run: |
+          pip install ruff
+          ruff check src/
+
+      - name: Run unit tests (pytest)
+        run: |
+          pytest tests/ -v --tb=short
+
+      - name: Test synthetic notebook execution (Module 1)
+        run: |
+          jupyter nbconvert --to notebook --execute \
+            --ExecutePreprocessor.timeout=300 \
+            --output /tmp/01_test_executed.ipynb \
+            notebooks/01_segmentation.ipynb
+        continue-on-error: true   # Real datasets not available in CI; synthetic fallback runs
+
+      - name: Test synthetic notebook execution (Module 2)
+        run: |
+          jupyter nbconvert --to notebook --execute \
+            --ExecutePreprocessor.timeout=300 \
+            --output /tmp/02_test_executed.ipynb \
+            notebooks/02_forecasting.ipynb
+        continue-on-error: true
+
+      - name: Upload test artifacts
+        if: always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: test-results-${{ matrix.python-version }}
+          path: /tmp/*_executed.ipynb
+          retention-days: 7

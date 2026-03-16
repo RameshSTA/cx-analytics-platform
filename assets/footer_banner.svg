@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" width="1200" height="120">
+  <defs>
+    <linearGradient id="accentGradF" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%"   stop-color="#ffc000" stop-opacity="0"/>
+      <stop offset="20%"  stop-color="#ffc000" stop-opacity="1"/>
+      <stop offset="60%"  stop-color="#70ad47" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#70ad47" stop-opacity="0"/>
+    </linearGradient>
+    <clipPath id="footerClip">
+      <rect width="1200" height="120"/>
+    </clipPath>
+  </defs>
+
+  <style>
+    @keyframes wf1 {
+      0%   { transform: translateX(0px); }
+      100% { transform: translateX(-1200px); }
+    }
+    @keyframes wf2 {
+      0%   { transform: translateX(-300px); }
+      100% { transform: translateX(-1500px); }
+    }
+    @keyframes wf3 {
+      0%   { transform: translateX(-700px); }
+      100% { transform: translateX(-1900px); }
+    }
+    @keyframes fadeText {
+      0%   { opacity: 0.55; }
+      50%  { opacity: 0.9; }
+      100% { opacity: 0.55; }
+    }
+    .fw1 { animation: wf1 14s linear infinite; }
+    .fw2 { animation: wf2  9s linear infinite; }
+    .fw3 { animation: wf3  6s linear infinite; }
+    .ftext { animation: fadeText 6s ease-in-out infinite; }
+  </style>
+
+  <!-- White background -->
+  <rect width="1200" height="120" fill="#ffffff"/>
+
+  <!-- Author name — centred above waves -->
+  <text x="600" y="28" text-anchor="middle"
+    font-family="'Segoe UI',Arial,Helvetica,sans-serif"
+    font-size="13.5" font-weight="600"
+    fill="#2d3e55">Ramesh Shrestha — Data Scientist · ML Engineer · Sydney, Australia</text>
+
+  <!-- Rights line -->
+  <text x="600" y="46" text-anchor="middle"
+    font-family="'Segoe UI',Arial,Helvetica,sans-serif"
+    font-size="11" font-weight="400"
+    fill="#7a8fa8" class="ftext">Full working rights in Australia  ·  References available upon request</text>
+
+  <!-- Thin accent rule -->
+  <rect x="300" y="55" width="600" height="1.5" rx="0.75" fill="url(#accentGradF)"/>
+
+  <!-- Animated wave layers (clipped) -->
+  <g clip-path="url(#footerClip)">
+
+    <!-- Wave 1 — back, lightest, slowest -->
+    <g class="fw1">
+      <path d="M 0,68 C 300,50 300,50 600,68 C 900,86 900,86 1200,68
+               C 1500,50 1500,50 1800,68 C 2100,86 2100,86 2400,68
+               L 2400,120 L 0,120 Z"
+        fill="rgba(90,135,195,0.20)"/>
+    </g>
+
+    <!-- Wave 2 — middle -->
+    <g class="fw2">
+      <path d="M 0,78 C 300,64 300,64 600,78 C 900,92 900,92 1200,78
+               C 1500,64 1500,64 1800,78 C 2100,92 2100,92 2400,78
+               L 2400,120 L 0,120 Z"
+        fill="rgba(50,90,160,0.38)"/>
+    </g>
+
+    <!-- Wave 3 — front, darkest, fastest -->
+    <g class="fw3">
+      <path d="M 0,88 C 300,78 300,78 600,88 C 900,98 900,98 1200,88
+               C 1500,78 1500,78 1800,88 C 2100,98 2100,98 2400,88
+               L 2400,120 L 0,120 Z"
+        fill="rgba(15,38,85,0.60)"/>
+    </g>
+
+  </g>
+
+  <!-- Bottom accent stripe -->
+  <rect x="0" y="116" width="1200" height="4" fill="url(#accentGradF)"/>
+</svg>

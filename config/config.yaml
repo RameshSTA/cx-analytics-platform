@@ -1,0 +1,38 @@
+# Customer Experience Analytics Platform — Master Configuration
+# ============================================================
+# All path and environment settings. Override per environment.
+
+project:
+  name: "Customer Experience Analytics Platform"
+  version: "1.0.0"
+  author: "Ramesh Shrestha"
+  random_seed: 42
+
+paths:
+  raw_data: "data/raw"
+  processed_data: "data/processed"
+  charts: "outputs/charts"
+  reports: "outputs/reports"
+  models: "outputs/models"
+  logs: "outputs/logs"
+
+data:
+  retail:
+    filename: "online_retail_II.xlsx"
+    sheets: ["Year 2009-2010", "Year 2010-2011"]
+    encoding: "utf-8"
+  rossmann_train:
+    filename: "rossmann_train.csv"
+    parse_dates: ["Date"]
+  rossmann_store:
+    filename: "rossmann_store.csv"
+  yelp_review:
+    filename: "yelp_review.json"
+    max_rows: 500000           # Set to null to read all
+  yelp_business:
+    filename: "yelp_business.json"
+
+logging:
+  level: "INFO"
+  format: "%(asctime)s [%(levelname)s] %(name)s: %(message)s"
+  file: "outputs/logs/pipeline.log"

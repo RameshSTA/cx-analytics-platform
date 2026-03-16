@@ -1,0 +1,48 @@
+# Customer Experience Analytics Platform — Business Parameters
+# =========================================================
+# All financial and business constants used in impact calculations.
+# Update these when deploying against the retail operator's actual data.
+
+currency:
+  platform_currency: "AUD"
+  source_currency_retail: "GBP"
+  source_currency_rossmann: "EUR"
+  gbp_to_aud: 1.92
+  eur_to_aud: 1.65
+
+segmentation:
+  retention_campaign_cost_per_customer: 180      # AUD per At-Risk customer
+  vip_programme_annual_cost: 60000               # AUD for Champions programme
+  champions_revenue_share: 0.392                 # 39.2% of total revenue
+  at_risk_recoverable_clv: 2100000               # AUD — $2.1M At-Risk CLV pool
+  at_risk_conversion_assumption: 0.50            # 50% of At-Risk convert with retention
+
+forecasting:
+  weekly_staffing_cost_per_mape_point: 28000     # AUD — cost per 1% forecast error
+  understaffing_incident_cost: 70000             # AUD per incident
+  understaffing_incidents_per_year: 2
+  vendor_replenishment_saving_per_week: 1635     # AUD
+  anomaly_response_saving_per_event: 75000       # AUD per avoided delayed response
+
+nlp:
+  nps_revenue_per_point: 300000                  # AUD per 1-pt NPS improvement (conservative)
+  parking_fix_nps_uplift: [3, 4]                 # Range of expected NPS uplift pts
+  fb_fix_nps_uplift: [1, 2]
+  staff_fix_nps_uplift: [1, 2]
+  amenities_fix_nps_uplift: [1, 1]
+  manual_review_cost_per_fteday: 650             # AUD
+  manual_review_days_saved_per_year: 80          # 4 FTE-months
+
+ab_testing:
+  promo_rollout_centres: 42                      # Full national retail network
+  campaign_weeks: 26
+  store_avg_weekly_sales: 18500                  # AUD — avg weekly sales per store equivalent
+  campaign_cost_national: 340000                 # AUD — full national rollout cost
+  did_lift_point_estimate: 0.025                 # +2.5% causal lift
+  bayesian_posterior_prob: 0.958                 # P(lift > 0) = 95.8%
+
+reporting:
+  report_title: "Customer Experience Analytics Platform"
+  report_subtitle: "Multi-Module Customer Analytics — Data Science Portfolio"
+  author: "Ramesh Shrestha"
+  audience: "Marketing Director / CX Director / CFO / Recruiting Panel"
