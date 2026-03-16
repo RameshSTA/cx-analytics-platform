@@ -42,7 +42,7 @@ The platform uses three real-world, publicly available datasets. Each was select
 | Unique customers | 4,338 |
 | Time span | 01 Dec 2009 – 09 Dec 2011 |
 | Geography | UK-based retailer, international customers |
-| Currency | GBP (£) |
+| Currency | AUD ($) |
 
 ### Schema
 
@@ -53,7 +53,7 @@ The platform uses three real-world, publicly available datasets. Each was select
 | `Description` | String | Product name (free text; some nulls) |
 | `Quantity` | Integer | Units purchased; negative = return/cancellation |
 | `InvoiceDate` | Datetime | Date and time of invoice |
-| `UnitPrice` | Float | Price per unit in GBP |
+| `UnitPrice` | Float | Price per unit in AUD |
 | `CustomerID` | Float | Unique customer identifier (nullable) |
 | `Country` | String | Country of customer |
 

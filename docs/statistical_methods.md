@@ -122,7 +122,7 @@ y_dm_{it} = δ · post_dm_{it} + τ · (treat × post)_dm_{it} + ε_{it}
 ```
 Where `_dm` denotes store-demeaned variables, δ captures common time trends, and **τ is the causal treatment effect** (DiD estimate). Standard errors are clustered at the store level to account for autocorrelation.
 
-**Result:** τ = +£848/week per store (p = 0.080, cluster-robust SE)
+**Result:** τ = +$848/week per store (p = 0.080, cluster-robust SE)
 **Interpretation:** The Promo2 loyalty programme caused an estimated +2.5% increase in weekly sales, above and beyond any common time trend or pre-existing store differences.
 
 ---

@@ -172,18 +172,18 @@ Despite this scale, four strategic questions persistently challenge the team. Wi
 
 </div>
 
-**CLV Model (XGBoost, out-of-time holdout):** R² = 0.74 &nbsp;·&nbsp; RMSE = £186 &nbsp;·&nbsp; MAE = £112 &nbsp;·&nbsp; Top-decile lift = **4.8×**
+**CLV Model (XGBoost, out-of-time holdout):** R² = 0.74 &nbsp;·&nbsp; RMSE = $186 &nbsp;·&nbsp; MAE = $112 &nbsp;·&nbsp; Top-decile lift = **4.8×**
 
 ### Module 2 — Forecasting Model Comparison
 
 <div align="center">
 
-| Model | MAPE | MAE (£/wk) | RMSE | Status |
+| Model | MAPE | MAE ($/wk) | RMSE | Status |
 |:---|:---:|:---:|:---:|:---|
-| Naïve (last-year same-week) | 14.1% | £3,820 | £5,210 | Baseline |
-| SARIMA(1,1,1)(1,1,1,52) | 11.2% | £2,940 | £4,180 | Benchmark |
-| Prophet + AU holidays | 8.4% | £2,210 | £3,120 | Strong seasonal model |
-| **LightGBM (production)** | **6.8%** | **£1,780** | **£2,540** | **Production — AWS Lambda** |
+| Naïve (last-year same-week) | 14.1% | $3,820 | $5,210 | Baseline |
+| SARIMA(1,1,1)(1,1,1,52) | 11.2% | $2,940 | $4,180 | Benchmark |
+| Prophet + AU holidays | 8.4% | $2,210 | $3,120 | Strong seasonal model |
+| **LightGBM (production)** | **6.8%** | **$1,780** | **$2,540** | **Production — AWS Lambda** |
 
 </div>
 
@@ -219,7 +219,7 @@ Despite this scale, four strategic questions persistently challenge the team. Wi
 | Balance check (pre-period Welch t) | t = 0.16 | **0.871** | Valid — groups indistinguishable; matched design confirmed |
 | Welch t-test (post-period comparison) | t = 0.37 | 0.710 | Not significant — expected for small matched effect |
 | Mann-Whitney U | U = 1,286 | 0.680 | Consistent with t-test result |
-| **DiD regression (causal estimate)** | **β = +£848/wk** | **0.080** | Causal lift +2.5% at alpha = 0.10 |
+| **DiD regression (causal estimate)** | **β = +$848/wk** | **0.080** | Causal lift +2.5% at alpha = 0.10 |
 | **Bayesian P(lift > 0)** | — | — | **95.8% posterior probability** |
 
 </div>
@@ -448,7 +448,7 @@ The experiment uses the Rossmann Promo2 sustained loyalty programme as the treat
 > **Parallel trends.** Treatment and control groups follow nearly identical trajectories in H1 2013 (pre-period). The post-period divergence begins precisely at week 27, 2013 — the Promo2 campaign start — and is consistent with a genuine causal effect rather than a pre-existing trend difference.
 
 <p align="justify">
-The entity-demeaned DiD regression removes store fixed effects and estimates the causal impact of Promo2 on weekly sales. Standard errors are clustered at the store level to account for within-store autocorrelation. The result: <strong>τ = +£848/week per store (cluster-robust SE, p = 0.080)</strong> — a +2.5% causal lift, marginally significant at α = 0.10 and strongly supported by the Bayesian posterior at 95.8%.
+The entity-demeaned DiD regression removes store fixed effects and estimates the causal impact of Promo2 on weekly sales. Standard errors are clustered at the store level to account for within-store autocorrelation. The result: <strong>τ = +$848/week per store (cluster-robust SE, p = 0.080)</strong> — a +2.5% causal lift, marginally significant at α = 0.10 and strongly supported by the Bayesian posterior at 95.8%.
 </p>
 
 **Revenue impact at full national scale (42 shopping centres):**

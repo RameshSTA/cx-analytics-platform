@@ -135,7 +135,7 @@ class RetailDataCleaner:
         print(f"  Rows removed      : {original_rows - len(df):>10,}  ({(original_rows - len(df)) / original_rows * 100:.1f}%)")
         print(f"  Final customers   : {df['Customer ID'].nunique():>10,}")
         print(f"  Date range        : {df['InvoiceDate'].min().date()} → {df['InvoiceDate'].max().date()}")
-        print(f"  Total revenue     : £{df['revenue'].sum():>12,.2f}")
+        print(f"  Total revenue     : ${df['revenue'].sum():>12,.2f}")
         print("-" * 65)
         print(f"  {'Step':<35} {'Removed':>8} {'%':>6}")
         print("-" * 65)

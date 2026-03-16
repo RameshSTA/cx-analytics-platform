@@ -34,13 +34,13 @@ This document provides a concise model card for each ML model deployed in the Cu
 |:---|:---|
 | **Model type** | Gradient-boosted decision tree (XGBoost regression) |
 | **Framework** | XGBoost 2.0+ |
-| **Task** | Predict 12-month forward CLV per customer (continuous, GBP) |
+| **Task** | Predict 12-month forward CLV per customer (continuous, AUD) |
 | **Training data** | UCI Online Retail II — first 80% of transaction history (temporal split) |
 | **Holdout evaluation** | Last 20% of transaction history (2011) |
 | **Primary metric** | R² = 0.74 (holdout); Top-decile lift = 4.8× |
 | **Hyperparameters** | n_estimators=400, max_depth=5, learning_rate=0.05, subsample=0.8 |
 | **Input features** | 7 RFM features + 6 engineered features (see feature_engineering.md) |
-| **Output** | Predicted CLV in £ per customer |
+| **Output** | Predicted CLV in $ per customer |
 | **Intended use** | Rank customers by predicted future value for retention targeting |
 | **Not intended for** | Real-time transaction approval; individual loan/credit decisions |
 
@@ -62,10 +62,10 @@ The model is trained on purchase behaviour, not demographic attributes. Customer
 | **Task** | Recursive 4-week-ahead weekly sales forecast per store |
 | **Training data** | Rossmann stores 2013–2015 (weeks 1–104 per store) |
 | **Holdout evaluation** | Final 4 weeks per store (2015) |
-| **Primary metric** | MAPE = 6.8% (holdout); MAE = £1,780/week |
+| **Primary metric** | MAPE = 6.8% (holdout); MAE = $1,780/week |
 | **Hyperparameters** | n_estimators=500, num_leaves=63, learning_rate=0.05, min_data_in_leaf=20 |
 | **Input features** | 13 features including sales lags (1,2,4,8,52), rolling stats, holidays, store metadata |
-| **Output** | Predicted weekly sales in £; anomaly flag (binary) per week |
+| **Output** | Predicted weekly sales in $; anomaly flag (binary) per week |
 | **Intended use** | Centre manager staffing decisions, vendor replenishment, promotional planning |
 | **Not intended for** | Intraday sales forecasting; individual transaction prediction |
 | **Deployment** | AWS Lambda endpoint (ap-southeast-2) |

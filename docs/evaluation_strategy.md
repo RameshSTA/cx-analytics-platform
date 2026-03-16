@@ -43,8 +43,8 @@ Every model in this platform is evaluated on held-out data it has never seen dur
 | Metric | Value | Split | Interpretation |
 |:---|:---:|:---|:---|
 | R² | **0.74** | 80/20 temporal | Model explains 74% of CLV variance out-of-sample |
-| RMSE | £186 | Holdout | Typical CLV prediction error ≈ £186 per customer |
-| MAE | £112 | Holdout | Median absolute error; less sensitive to high-CLV outliers |
+| RMSE | $186 | Holdout | Typical CLV prediction error ≈ $186 per customer |
+| MAE | $112 | Holdout | Median absolute error; less sensitive to high-CLV outliers |
 | Top-decile lift | **4.8×** | Holdout | Top 10% predicted CLV customers have 4.8× actual revenue vs. mean |
 
 **Temporal split rationale:** A random 80/20 split would leak future information into training. The 80% training window uses transactions up to the cutoff date; the 20% test window evaluates predictions on customers whose holdout-period revenue is unknown to the model. This mirrors the operational use case — predict forward CLV from historical RFM features.
@@ -54,14 +54,14 @@ Every model in this platform is evaluated on held-out data it has never seen dur
 ## Module 2 — Forecasting Evaluation
 
 ### Model Comparison (out-of-sample, 4-week hold-out)
-| Model | MAPE | MAE (£/week) | RMSE | Training Time |
+| Model | MAPE | MAE ($/week) | RMSE | Training Time |
 |:---|:---:|:---:|:---:|:---|
-| Naïve (last-year same-week) | 14.1% | £3,820 | £5,210 | — |
-| SARIMA(1,1,1)(1,1,1,52) | 11.2% | £2,940 | £4,180 | ~8 min |
-| Prophet + AU holidays | 8.4% | £2,210 | £3,120 | ~4 min |
-| **LightGBM (production)** | **6.8%** | **£1,780** | **£2,540** | ~12 min |
+| Naïve (last-year same-week) | 14.1% | $3,820 | $5,210 | — |
+| SARIMA(1,1,1)(1,1,1,52) | 11.2% | $2,940 | $4,180 | ~8 min |
+| Prophet + AU holidays | 8.4% | $2,210 | $3,120 | ~4 min |
+| **LightGBM (production)** | **6.8%** | **$1,780** | **$2,540** | ~12 min |
 
-**Why MAPE is the primary metric:** MAPE (Mean Absolute Percentage Error) is preferred over absolute error metrics because it is scale-invariant — a £500 error on a £1,000-revenue week is very different from a £500 error on a £50,000-revenue week. Centre managers think in percentage terms ("we were off by 7%") not in absolute £ terms.
+**Why MAPE is the primary metric:** MAPE (Mean Absolute Percentage Error) is preferred over absolute error metrics because it is scale-invariant — a $500 error on a $1,000-revenue week is very different from a $500 error on a $50,000-revenue week. Centre managers think in percentage terms ("we were off by 7%") not in absolute $ terms.
 
 **4-week horizon justification:** Staffing decisions require 3–4 weeks' notice for casual workforce scheduling. Vendor inventory replenishment requires 2–3 weeks. The 4-week horizon is the minimum needed to make operationally actionable forecasts.
 
@@ -117,7 +117,7 @@ Every model in this platform is evaluated on held-out data it has never seen dur
 |:---|:---:|:---:|:---|
 | Welch t-test (post-period means) | t = 0.37 | 0.710 | Not significant — expected for matched design with small effect size |
 | Mann-Whitney U | U = 1,286 | 0.68 | Consistent with t-test |
-| **Difference-in-Differences (DiD)** | β = +£848/wk | **0.080** | Marginally significant causal lift at α=0.10 |
+| **Difference-in-Differences (DiD)** | β = +$848/wk | **0.080** | Marginally significant causal lift at α=0.10 |
 | Bayesian P(lift > 0) | — | **95.8%** | Strong posterior evidence for positive effect |
 
 **Why DiD is the primary causal estimate:** Simple post-period comparisons confound treatment effects with pre-existing differences between stores. DiD controls for store fixed effects (entity demeaning) and time trends (post indicator), isolating the causal effect of the Promo2 campaign. Cluster-robust standard errors at the store level account for the autocorrelated nature of weekly sales data.

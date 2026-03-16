@@ -37,11 +37,11 @@ Marketing can now allocate retention spend by segment, targeting the At-Risk coh
 
 | Segment | Customers | Avg CLV | Revenue Share | Action |
 |:---|:---:|:---:|:---:|:---|
-| Champions | 487 | £4,210 | **39.2%** | Reward & upsell |
-| Loyal | 612 | £2,840 | 28.6% | Nurture & refer |
-| **At-Risk** | **431** | **£4,870** | **—** | **Intervene NOW** |
-| Promising | 894 | £1,120 | 18.4% | Develop |
-| Churned | 1,914 | £380 | 13.8% | Win-back if CLV > cost |
+| Champions | 487 | $4,210 | **39.2%** | Reward & upsell |
+| Loyal | 612 | $2,840 | 28.6% | Nurture & refer |
+| **At-Risk** | **431** | **$4,870** | **—** | **Intervene NOW** |
+| Promising | 894 | $1,120 | 18.4% | Develop |
+| Churned | 1,914 | $380 | 13.8% | Win-back if CLV > cost |
 
 **At-Risk recovery value: $2.1M AUD**
 - 431 At-Risk customers × avg CLV of $4,870 AUD

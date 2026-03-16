@@ -131,7 +131,7 @@ class RFMCalculator:
             f"RFM computed: {len(rfm):,} customers | "
             f"median recency={rfm['recency'].median():.0f}d | "
             f"median frequency={rfm['frequency'].median():.1f} | "
-            f"median monetary=£{rfm['monetary'].median():.2f}"
+            f"median monetary=${rfm['monetary'].median():.2f}"
         )
         return rfm
 
@@ -382,7 +382,7 @@ class CLVModel:
         self.rmse_ = np.sqrt(mean_squared_error(y_test, y_pred))
         self.r2_ = r2_score(y_test, y_pred)
 
-        logger.info(f"CLV model trained — RMSE: £{self.rmse_:.2f} | R²: {self.r2_:.4f}")
+        logger.info(f"CLV model trained — RMSE: ${self.rmse_:.2f} | R²: {self.r2_:.4f}")
         return self
 
     def predict(self, rfm_segmented: pd.DataFrame) -> pd.Series:
@@ -416,10 +416,10 @@ class CLVModel:
         print("\n" + "=" * 55)
         print("  CLV MODEL PERFORMANCE")
         print("=" * 55)
-        print(f"  RMSE   : £{self.rmse_:>10.2f}")
+        print(f"  RMSE   : ${self.rmse_:>10.2f}")
         print(f"  R²     : {self.r2_:>10.4f}")
         print(f"\n  Business interpretation:")
         print(f"  The model explains {self.r2_ * 100:.1f}% of the variance")
         print(f"  in 90-day visitor spend. Predictions are accurate")
-        print(f"  to within ±£{self.rmse_:.2f} on average.")
+        print(f"  to within ±${self.rmse_:.2f} on average.")
         print("=" * 55 + "\n")

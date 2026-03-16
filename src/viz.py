@@ -304,9 +304,9 @@ def plot_clv_by_segment(
     bars = ax.barh(order, mean_clv.values, color=colours, edgecolor="white")
 
     for bar, val in zip(bars, mean_clv.values):
-        ax.text(val + 0.5, bar.get_y() + bar.get_height() / 2, f"£{val:.0f}", va="center", fontsize=10)
+        ax.text(val + 0.5, bar.get_y() + bar.get_height() / 2, f"${val:.0f}", va="center", fontsize=10)
 
-    ax.set_xlabel("Mean Predicted 90-day CLV (£)")
+    ax.set_xlabel("Mean Predicted 90-day CLV ($)")
     ax.set_title("Predicted 90-Day Customer Lifetime Value by Segment", fontweight="bold")
     ax.invert_yaxis()
 
