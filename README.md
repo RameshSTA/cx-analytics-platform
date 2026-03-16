@@ -181,9 +181,9 @@ Despite this scale, four strategic questions persistently challenge the team. Wi
 | Model | MAPE | MAE (£/wk) | RMSE | Status |
 |:---|:---:|:---:|:---:|:---|
 | Naïve (last-year same-week) | 14.1% | £3,820 | £5,210 | Baseline |
-| SARIMA(1,1,1)(1,1,1,52) | 11.2% | £2,940 | £4,180 | ✅ Statistical benchmark |
-| Prophet + AU holidays | 8.4% | £2,210 | £3,120 | ✅ Strong seasonal model |
-| **LightGBM (production)** | **6.8%** | **£1,780** | **£2,540** | 🚀 **Deployed to AWS Lambda** |
+| SARIMA(1,1,1)(1,1,1,52) | 11.2% | £2,940 | £4,180 | Benchmark |
+| Prophet + AU holidays | 8.4% | £2,210 | £3,120 | Strong seasonal model |
+| **LightGBM (production)** | **6.8%** | **£1,780** | **£2,540** | **Production — AWS Lambda** |
 
 </div>
 
@@ -202,11 +202,11 @@ Despite this scale, four strategic questions persistently challenge the team. Wi
 
 | Rank | Theme | Avg Sentiment | Prevalence | Est. NPS Lift | Priority |
 |:---:|:---|:---:|:---:|:---:|:---:|
-| 1 | Parking & Access | −0.68 | 24% of reviews | +3–4 pts | 🔴 Critical |
-| 2 | Food & Beverage Quality | −0.52 | 18% | +1–2 pts | 🟠 High |
-| 3 | Staff Responsiveness | −0.47 | 14% | +1–2 pts | 🟠 High |
-| 4 | Queuing & Wait Times | −0.41 | 11% | +1 pt | 🟡 Medium |
-| 5 | Amenities & Cleanliness | −0.35 | 9% | +1 pt | 🟡 Medium |
+| 1 | Parking & Access | −0.68 | 24% of reviews | +3–4 pts | Critical |
+| 2 | Food & Beverage Quality | −0.52 | 18% | +1–2 pts | High |
+| 3 | Staff Responsiveness | −0.47 | 14% | +1–2 pts | High |
+| 4 | Queuing & Wait Times | −0.41 | 11% | +1 pt | Medium |
+| 5 | Amenities & Cleanliness | −0.35 | 9% | +1 pt | Medium |
 
 </div>
 
@@ -216,10 +216,10 @@ Despite this scale, four strategic questions persistently challenge the team. Wi
 
 | Test | Statistic | p-value | Interpretation |
 |:---|:---:|:---:|:---|
-| Balance check (pre-period Welch t) | t = 0.16 | **0.871** | ✅ Groups indistinguishable — matched design is valid |
+| Balance check (pre-period Welch t) | t = 0.16 | **0.871** | Valid — groups indistinguishable; matched design confirmed |
 | Welch t-test (post-period comparison) | t = 0.37 | 0.710 | Not significant — expected for small matched effect |
 | Mann-Whitney U | U = 1,286 | 0.680 | Consistent with t-test result |
-| **DiD regression (causal estimate)** | **β = +£848/wk** | **0.080** | ✅ Causal lift +2.5% at α = 0.10 |
+| **DiD regression (causal estimate)** | **β = +£848/wk** | **0.080** | Causal lift +2.5% at alpha = 0.10 |
 | **Bayesian P(lift > 0)** | — | — | **95.8% posterior probability** |
 
 </div>
@@ -640,7 +640,7 @@ cx-analytics-platform/
 │   │                                      LGBMForecaster, AnomalyFlagger
 │   ├── nlp_pipeline.py                 ← TextPreprocessor, SentimentClassifier,
 │   │                                      TopicModeller, CXActionMatrix
-│   └── viz.py                          ← set_brand_style() · WF_PALETTE · chart helpers
+│   └── viz.py                          ← set_brand_style() · BRAND_PALETTE · chart helpers
 │
 ├── tests/
 │   ├── conftest.py                     ← Shared pytest fixtures (synthetic DataFrames)
@@ -683,12 +683,12 @@ cx-analytics-platform/
 
 | Assumption | Value | Module | Sensitivity Tested? |
 |:---|:---|:---:|:---:|
-| CLV forecast horizon | 12 months forward | M1 | ✅ Shorter window → higher R² |
-| Temporal split ratio | 80% train / 20% test | M1, M2 | ✅ 70/30 reduces R² by ~0.04 |
-| SARIMA seasonality period | 52 weeks (annual) | M2 | ⚠️ Fails if holiday timing shifts |
-| DiD parallel trends | Visual + balance check p=0.871 | M4 | ✅ Pre-period indistinguishable |
-| NPS → Revenue multiplier | $300K AUD per 1-pt NPS | M3 | ⚠️ Requires operator-side validation |
-| Campaign cost (national) | $340K AUD | M4 | ✅ Sensitivity model in docs |
+| CLV forecast horizon | 12 months forward | M1 | Validated — shorter window improves R² |
+| Temporal split ratio | 80% train / 20% test | M1, M2 | Validated — 70/30 reduces R² by ~0.04 |
+| SARIMA seasonality period | 52 weeks (annual) | M2 | Risk — fails if holiday timing shifts |
+| DiD parallel trends | Visual + balance check p=0.871 | M4 | Pre-period groups indistinguishable |
+| NPS → Revenue multiplier | $300K AUD per 1-pt NPS | M3 | Requires operator-side validation |
+| Campaign cost (national) | $340K AUD | M4 | Sensitivity model in docs |
 
 </div>
 

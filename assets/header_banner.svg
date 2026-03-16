@@ -59,51 +59,44 @@
   <!-- Left accent bar -->
   <rect x="0" y="0" width="5" height="220" fill="#ffc000" fill-opacity="0.85"/>
 
-  <!-- "W" brand monogram -->
-  <text x="30" y="98"
-    font-family="Georgia,'Times New Roman',serif"
-    font-size="72" font-weight="900"
-    fill="#ffc000" fill-opacity="0.70"
-    class="glow">W</text>
-
   <!-- Platform title -->
-  <text x="118" y="72"
+  <text x="30" y="72"
     font-family="'Segoe UI',Arial,Helvetica,sans-serif"
     font-size="36" font-weight="700" letter-spacing="0.3"
     fill="#ffffff">Customer Experience Analytics Platform</text>
 
   <!-- Subtitle -->
-  <text x="120" y="100"
+  <text x="30" y="100"
     font-family="'Segoe UI',Arial,Helvetica,sans-serif"
     font-size="14.5" font-weight="400"
     fill="rgba(170,205,255,0.87)">Multi-Module Customer Analytics  ·  Retail Data Science Portfolio</text>
 
   <!-- Shimmer accent line -->
-  <rect x="118" y="110" width="620" height="2" rx="1" fill="url(#accentGrad)" class="glow"/>
+  <rect x="30" y="110" width="720" height="2" rx="1" fill="url(#accentGrad)" class="glow"/>
 
   <!-- Module pills -->
-  <rect x="120" y="120" width="154" height="21" rx="10.5" fill="rgba(255,255,255,0.08)"/>
-  <text x="197" y="134.5" text-anchor="middle"
+  <rect x="30"  y="120" width="154" height="21" rx="10.5" fill="rgba(255,255,255,0.08)"/>
+  <text x="107" y="134.5" text-anchor="middle"
     font-family="'Segoe UI',Arial,sans-serif" font-size="9.5" font-weight="600" letter-spacing="0.9"
     fill="rgba(195,220,255,0.88)">M1 · SEGMENTATION</text>
 
-  <rect x="282" y="120" width="143" height="21" rx="10.5" fill="rgba(255,255,255,0.08)"/>
-  <text x="353.5" y="134.5" text-anchor="middle"
+  <rect x="192" y="120" width="143" height="21" rx="10.5" fill="rgba(255,255,255,0.08)"/>
+  <text x="263.5" y="134.5" text-anchor="middle"
     font-family="'Segoe UI',Arial,sans-serif" font-size="9.5" font-weight="600" letter-spacing="0.9"
     fill="rgba(195,220,255,0.88)">M2 · FORECASTING</text>
 
-  <rect x="433" y="120" width="110" height="21" rx="10.5" fill="rgba(255,255,255,0.08)"/>
-  <text x="488" y="134.5" text-anchor="middle"
+  <rect x="343" y="120" width="110" height="21" rx="10.5" fill="rgba(255,255,255,0.08)"/>
+  <text x="398" y="134.5" text-anchor="middle"
     font-family="'Segoe UI',Arial,sans-serif" font-size="9.5" font-weight="600" letter-spacing="0.9"
     fill="rgba(195,220,255,0.88)">M3 · NLP / CX</text>
 
-  <rect x="551" y="120" width="136" height="21" rx="10.5" fill="rgba(255,255,255,0.08)"/>
-  <text x="619" y="134.5" text-anchor="middle"
+  <rect x="461" y="120" width="136" height="21" rx="10.5" fill="rgba(255,255,255,0.08)"/>
+  <text x="529" y="134.5" text-anchor="middle"
     font-family="'Segoe UI',Arial,sans-serif" font-size="9.5" font-weight="600" letter-spacing="0.9"
     fill="rgba(195,220,255,0.88)">M4 · CAUSAL A/B</text>
 
   <!-- Author line -->
-  <text x="120" y="155"
+  <text x="30" y="155"
     font-family="'Segoe UI',Arial,sans-serif"
     font-size="10.5" fill="rgba(130,175,235,0.62)">
     Ramesh Shrestha  ·  Data Scientist  ·  Sydney, Australia  ·  March 2026
