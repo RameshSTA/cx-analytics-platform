@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="assets/header_banner.svg" width="100%" alt="Customer Experience Analytics Platform"/>
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:1a2c4e,100:4a6b9e&height=230&section=header&text=Causal%20Experiment%20Design&fontColor=ffffff&fontSize=56&fontAlignY=38&desc=Statistical%20Hypothesis%20Validation%20and%20NLP%20Analysis&descColor=b8cceb&descSize=22&descAlignY=63" width="100%" />
 </div>
 
 <br>
